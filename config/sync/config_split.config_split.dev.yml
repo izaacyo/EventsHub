@@ -1,0 +1,17 @@
+uuid: fbcfed02-3802-460d-9393-da3f447cb563
+langcode: en
+status: false
+dependencies: {  }
+id: dev
+label: Dev
+description: ''
+weight: 0
+stackable: false
+no_patching: false
+storage: folder
+folder: ../config/dev
+module:
+  devel: 0
+theme: {  }
+complete_list: {  }
+partial_list: {  }
