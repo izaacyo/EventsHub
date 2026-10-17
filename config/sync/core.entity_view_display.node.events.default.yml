@@ -1,0 +1,58 @@
+uuid: af8ee977-d868-42e4-8df3-f7b65e995029
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.events.field_cities
+    - field.field.node.events.field_date
+    - field.field.node.events.field_events_description
+    - field.field.node.events.field_external_id
+    - node.type.events
+  module:
+    - datetime
+    - text
+    - user
+id: node.events.default
+targetEntityType: node
+bundle: events
+mode: default
+content:
+  field_cities:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_date:
+    type: datetime_default
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: olivero_medium
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_events_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_external_id:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+      link_rel: canonical
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }

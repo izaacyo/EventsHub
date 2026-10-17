@@ -1,0 +1,19 @@
+uuid: 92a4b576-1315-4595-9d4d-9801ce975cd5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_external_id
+    - node.type.events
+id: node.events.field_external_id
+field_name: field_external_id
+entity_type: node
+bundle: events
+label: 'External ID'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

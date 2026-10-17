@@ -1,0 +1,29 @@
+uuid: 7ed249f3-7e76-4f86-b7d0-c711b55d6a28
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cities
+    - node.type.events
+    - taxonomy.vocabulary.cities
+id: node.events.field_cities
+field_name: field_cities
+entity_type: node
+bundle: events
+label: Cities
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      cities: cities
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
