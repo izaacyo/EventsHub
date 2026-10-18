@@ -4,8 +4,9 @@ namespace Drupal\events_hub;
 
 use Drupal\Core\Config\ConfigFactoryInterface;
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\ÌuzzleException;
+use GuzzleHttp\Exception\GuzzleException;
 use Psr\Log\LoggerInterface;
+use GuzzleHttp\Psr7\Uri;
 
 /**
  * Talk to the external events API.

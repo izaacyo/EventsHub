@@ -14,3 +14,9 @@ services:
     arguments: ['@entity_type.manager'] #the tool for loading, creating and saving
                                         # anything in Drupal nodes, terms and users
 
+  events_hub.api_header_subscriber:
+    class: Drupal\events_hub\EventSubscriber\ApiHeaderSubscriber
+    # The tag tells Drupal "add me to the list of event listeners"
+    # Without it, the class exists but nobody evers calls it
+    tags:
+      - { name: event_subscriber }
