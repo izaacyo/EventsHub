@@ -1,1 +1,12 @@
-web/sites/default/settings.local.php
+/vendor/
+/web/core/
+/web/modules/contrib/
+/web/themes/contrib/
+/web/profiles/contrib/
+/web/libraries/
+/web/sites/*/files/
+/web/sites/*/private/
+/web/sites/*/settings.local.php
+/web/sites/*/settings.ddev.php
+node_modules/
+.env

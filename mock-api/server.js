@@ -28,10 +28,6 @@ app.get('/api/data', (req, res) => {
   res.json({ status: 'ok', message: 'Mock API is working!' });
 })
 
-app.listen(PORT, () => {
-  console.log(`Mock API server is running on http://localhost:${PORT}`);
-})
-
 app.get('/events', async (req, res) => {
   await sleep(200); // Simulate network latency
 
@@ -58,17 +54,22 @@ app.get('/events/:id', (req, res) => {
   res.json(event);
 });
 
+/*  app.get('/block', (req, res) => {
+  const end = Date.now() + 3000;
+  while (Date.now() < end) {} // busy loop: CPU work, no await
+  res.send('done');
+}); */
+
 app.use((req, res) => {
   res.status(404).json({ error: 'Not found' });
 });
 
 app.use((err, req, res, next) => {
   console.error(err);
-  res.status(500).json({ error: 'Internal server error' });
+  const status = err.status || err.statusCode || 500
+  res.status(status).json({ error: status === 500 ? 'Internal server error' : err.message });
 });
 
-/* app.get('/block', (req, res) => {
-  const end = Date.now() + 3000;
-  while (Date.now() < end) {} // busy loop: CPU work, no await
-  res.send('done');
-}); */
+app.listen(PORT, () => {
+  console.log(`Mock API server is running on http://localhost:${PORT}`);
+})
