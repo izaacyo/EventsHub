@@ -1,0 +1,4 @@
+_core:
+  default_config_hash: tgS8zSxei1aKbKNPfxrQZ5wSKJC46aD7E1sAcYcXb-A
+api_url: 'http://host.docker.internal:3001/events'
+import_limit: 30

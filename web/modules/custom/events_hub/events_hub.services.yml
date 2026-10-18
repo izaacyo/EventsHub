@@ -8,3 +8,9 @@ services:
   events_hub.api_client:
     class: Drupal\events_hub\EventsApiClient
     arguments: ['@http_client', '@config.factory', '@logger.channel.events_hub']
+
+  events_hub.importer:
+    class: Drupal\events_hub\EventImporter
+    arguments: ['@entity_type.manager'] #the tool for loading, creating and saving
+                                        # anything in Drupal nodes, terms and users
+

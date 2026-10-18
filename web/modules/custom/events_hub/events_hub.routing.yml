@@ -1,0 +1,14 @@
+# The route's machine name. Code and menu links refer to the page by this
+# name, not by its URL, so you can change the URL later without breaking links.
+events_hub.settings:
+  # The address in the browser.
+  # /admin/config/servies/... places it in the "Web services" admin section
+  path: '/admin/config/services/events-hub'
+  defaults:
+    # Which form class to show on this page (full class name, with namespace).
+    _form: '\Drupal\events_hub\Form\SettingsForm'
+    _title: 'Events Hub settings'
+  requirements:
+    # Who can open it. Anyone without this permission gets "Access denied".
+    # Never leave a settings page open to everyone.
+    _permission: 'administer site configuration'

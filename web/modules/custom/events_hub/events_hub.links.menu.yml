@@ -1,0 +1,7 @@
+# The link's machine name (convention: same as the route).
+events_hub.settings:
+  # Link text shown in the admin memnu.
+  title: 'Events Hub'
+  description: 'Configure the external events API.'
+  route_name: events_hub.settings
+  parent: system.admin_config_services
