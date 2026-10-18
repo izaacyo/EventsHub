@@ -1,0 +1,10 @@
+services:
+# logger.channel.events_hub is a logger that tags messages with events_hub,
+# so you can filter for your module's messages in the logs.
+  logger.channel.events_hub:
+    parent: logger.channel_base
+    arguments: ['events_hub']
+
+  events_hub.api_client:
+    class: Drupal\events_hub\EventsApiClient
+    arguments: ['@http_client', '@config.factory', '@logger.channel.events_hub']

@@ -1,0 +1,2 @@
+api_url: 'http://host.docker.internal:3001/events'
+import_limit: 50

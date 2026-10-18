@@ -1,0 +1,10 @@
+events_hub.settings:
+  type: config_object
+  label: 'Events Hub settings'
+  mapping:
+    api_url:
+      type: uri
+      label: 'API URL'
+    import_limit:
+      type: integer
+      label: 'Import limit'

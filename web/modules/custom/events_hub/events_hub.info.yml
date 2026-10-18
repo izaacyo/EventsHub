@@ -1,0 +1,5 @@
+name: 'Events Hub'
+type: module
+descriptionn: 'Imports evenets from an external API'
+package: Custom
+core_version_requirement: ^11
