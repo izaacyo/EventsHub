@@ -5,7 +5,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const cities = ['Berlin', 'Cluj', 'Munich', 'Bucharest'];
+const cities = ['Helsinki', 'Cluj', 'Berlin', 'Bucharest'];
 const DAY = 24 * 60 * 60 * 1000;
 
 const events = Array.from({ length: 200 }, (_, i) => ({

@@ -1,0 +1,20 @@
+uuid: f8aae7a6-ac50-48c1-9ecb-d8b22be685b6
+langcode: en
+status: true
+dependencies:
+  module:
+    - events_hub
+  theme:
+    - olivero
+id: olivero_upcomingevents
+theme: olivero
+region: content
+weight: 0
+provider: null
+plugin: events_hub_upcoming
+settings:
+  id: events_hub_upcoming
+  label: 'Upcoming events'
+  label_display: visible
+  provider: events_hub
+visibility: {  }
