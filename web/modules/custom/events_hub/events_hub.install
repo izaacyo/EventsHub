@@ -1,0 +1,72 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for Events Hub.
+ */
+
+/**
+ * Implements hook_schema().
+ */
+// Describes the module's own table. Drupal creates it automatically when the
+// module is INSTALLED, and deletes it when the module is UNINSTALLED.
+// Install hooks are still plain functions in a .install file: OOP #[Hook]
+// classes don't cover them yet.
+function events_hub_schema():array {
+  $schema['events_hub_rsvp'] = [
+    'description' => 'RSPVs to events.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'event_nid' => [
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE
+      ],
+      'name' => [
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+      ],
+      'status' => [
+        'type' => 'varchar_ascii',
+        'length' => 16,
+        'not null' => TRUE,
+        'default' => 'going',
+      ],
+      'created' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+    ],
+    'primary key' => ['id'],
+    'indexes' => [
+      'event_nid' => ['event_nid'],
+    ],
+  ];
+  return $schema;
+}
+
+/**
+ * Creates the events_hub_rsvp table.
+ */
+// Your module is ALREADY installed, so hook_schema() above will never run on
+// this site (it only runs at install time, like config/install).
+// An update hook is how you change the database of a site that already has
+// the module. "drush updb" runs it once, and Drupal remembers it ran.
+// The number: 10 = for Drupal 10+ era, 001 = your first update.
+function events_hub_update_10001(): string {
+  // \Drupal:: is fine here: this is a plain function, not a class.
+  $schema = \Drupal::database()->schema();
+
+  if (!$schema->tableExists('events_hub_rsvp')) {
+    $schema->createTable('events_hub_rsvp', events_hub_schema()['events_hub_rsvp']);
+  }
+
+  return 'Created the events_hub_rsvp table.';
+}

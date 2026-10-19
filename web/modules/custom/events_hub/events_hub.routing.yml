@@ -12,3 +12,33 @@ events_hub.settings:
     # Who can open it. Anyone without this permission gets "Access denied".
     # Never leave a settings page open to everyone.
     _permission: 'administer site configuration'
+# POST /api/events/25/rsvp: save one RSVP.
+events_hub.rsvp:
+  path: '/api/events/{node}/rsvp'
+  defaults:
+    # Class::method to call.
+    _controller: '\Drupal\events_hub\Controller\RsvpController::rsvp'
+  # Only POST is allowed. A GET to this URL gets "405 Method Not Allowed".
+  methods: [POST]
+  requirements:
+    # Anyone may call it, even anonymous visitors. That's a security
+    # trade-off: see "CSRF" in the interview section.
+    _access: 'TRUE'
+    # {node} must be digits, so /api/events/abc/rsvp doesn't even match.
+    node: '\d+'
+  options:
+    parameters:
+      # "Parameter conversion": Drupal turns the number in the URL into a
+      # loaded Node object for you. If node 25 doesn't exist → 404, before
+      # your code even runs.
+      node:
+        type: 'entity:node'
+
+# GET /api/events/top: the 10 most popular events.
+events_hub.top:
+  path: '/api/events/top'
+  defaults:
+    _controller: '\Drupal\events_hub\Controller\RsvpController::top'
+  methods: [GET]
+  requirements:
+    _permission: 'access content'

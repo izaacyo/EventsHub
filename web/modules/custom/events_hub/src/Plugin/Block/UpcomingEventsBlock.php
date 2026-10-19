@@ -104,7 +104,7 @@ final class UpcomingEventsBlock extends BlockBase implements ContainerFactoryPlu
         'tags' => ['node_list:events'],
         // CONTEXTS: "keep a separate copy for each different..."
         'contexts' => [
-          // ...value of ?city= in the URL (Berlin, Cluj, none...).
+          // ...value of ?city= in the URL (Helsinki, Cluj, none...).
           'url.query_args:city',
           // ...set of permissions (because of accessCheck(TRUE) above).
           'user.permissions',
